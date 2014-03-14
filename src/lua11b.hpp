@@ -5,9 +5,13 @@
 #include <iostream>
 #endif
 
+#ifdef LUA11B_USE_FAKE_LUA
+#include "fake-lua.hpp"
+#endif
+
 extern "C"
 {
-#include <lua.h>
+//#include <lua.h>
 }
 
 namespace lua11b
@@ -55,7 +59,7 @@ public:
 
         /*MemberReturnType ret = */
         MemberReturnType returnValue = (object->*memberPointer)(PopArgument<MemberArgsTypes...>());
-        CallMemberPointer<MemberReturnType, MemberArgsTypes>(memberPointer);
+        //CallMemberPointer<MemberReturnType, MemberArgsTypes>(memberPointer);
         //Get params from c++ stack and call function
 
 
@@ -72,7 +76,7 @@ public:
     {
         DebugPrint("Registering member function\n");DebugPrint(_functionName);DebugPrint("\n");
         lua_pushlightuserdata (L, memberPointer);
-        lua_pushcclosure(L, &(MemberFunctionWrapper<MemberReturnType, MemberArgsTypes>), 1);
+        lua_pushcclosure(L, &(MemberFunctionWrapper<MemberReturnType, MemberArgsTypes...>), 1);
     }
 
 }; //class class_
