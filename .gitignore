@@ -11,3 +11,12 @@
 *.lai
 *.la
 *.a
+
+# QtCreator build folders
+build-*
+
+# QtCreator user configuration
+*.user
+
+# Gedit temp files:
+*~
