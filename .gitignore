@@ -16,4 +16,4 @@
 *.pro.user
 
 # QtCreator output dir:
-build-tes-*
+build-test-*
