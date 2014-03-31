@@ -17,3 +17,6 @@
 
 # QtCreator output dir:
 build-test-*
+
+# some test editors temp file
+*~
