@@ -7,6 +7,7 @@
 
 #ifdef LUA11B_USE_FAKE_LUA
 #include "fake-lua.hpp"
+Lua_state_mock* The_lua_state_mock;
 #endif
 
 extern "C"
